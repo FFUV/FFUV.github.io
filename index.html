@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style-minimal.css">
-    <title>FFUV's Sketchy Universe</title>
+    <title>Manhattan Project | Unveiling the Atomic Age</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
     <header>
-        <h1>FFUV's Sketchy Universe</h1>
-        <p>Exploring the unknown, one line of code at a time.</p>
+        <h1>Manhattan Project</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="content sketchy-border">
-        <h2>About Me</h2>
-        <p>Welcome to my unique and sketchy universe. Here, we dive deep into the realms of code, science, and creativity, pushing the boundaries of what's possible.</p>
+    <section id="home">
+        <h2>Welcome to the Manhattan Project</h2>
+        <p>Embark on a journey through the pages of history, exploring the groundbreaking moments that unfolded during the Manhattan Project.</p>
     </section>
 
-    <section class="opp-info sketchy-border">
-        <h2>About Oppenheimer</h2>
-        <p>J. Robert Oppenheimer was an American theoretical physicist and the scientific director of the Manhattan Project, the World War II project that developed the first nuclear weapons. Known as the "father of the atomic bomb," Oppenheimer's work changed the course of history.</p>
-        <p>His famous quote, "I am become Death, the destroyer of worlds," reflects the profound impact of his contributions to science and the ethical questions surrounding nuclear technology.</p>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>At the heart of our mission is a commitment to preserving and sharing the story of the Manhattan Project. We delve into the scientific, cultural, and historical aspects, unraveling the complexities of an era that changed the course of history.</p>
     </section>
 
-    <button class="sketchy-button" onclick="applyFFUVEffect()">Generate Quote</button>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p>Step into our curated gallery, where each image tells a story. Immerse yourself in the visual journey of the people, places, and innovations that shaped the Manhattan Project.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to learn more? Feel free to reach out to us. We welcome your inquiries and are eager to connect with fellow enthusiasts and curious minds.</p>
+        <form id="contactForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
     <footer>
-        <p>&copy; 2024 FFUV - All rights reserved</p>
+        <p>&copy; 2024 Manhattan Project Theme</p>
     </footer>
 
-    <script src="script-minimal.js"></script>
 </body>
-
 </html>
