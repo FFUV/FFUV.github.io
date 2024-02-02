@@ -16,8 +16,8 @@ header {
 
 h1 {
     margin: 0;
-    font-size: 3em;
-    color: #ff4500; /* Dark orange color */
+    font-size: 2.5em;
+    color: #ccc; /* Light gray color */
 }
 
 .content {
@@ -25,10 +25,10 @@ h1 {
     margin: 20px auto;
     padding: 20px;
     background-color: #1a1a1a;
-    border: 2px solid #ff4500;
-    box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.7);
-    border-radius: 15px;
-    color: #ffcc00; /* Edgy yellow text color */
+    border: 2px solid #333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: #ccc; /* Light gray text color */
 }
 
 footer {
@@ -49,20 +49,20 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('https://www.transparenttextures.com/patterns/gray-jean.png'); /* Add a gray jean texture */
+    background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'); /* Add a subtle linen texture */
     opacity: 0.1;
     pointer-events: none;
     z-index: -1;
 }
 
 h2, p {
-    color: #ffcc00;
+    color: #ccc; /* Light gray text color */
 }
 
 .sketchy-border {
-    border: 2px solid #666;
+    border: 2px solid #333;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 20px;
 }
 
@@ -78,20 +78,4 @@ h2, p {
 
 .sketchy-button:hover {
     background-color: #555;
-}
-
-.sketchy-animation {
-    animation: shake 0.5s ease-in-out;
-}
-
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25%, 75% {
-        transform: translateX(-5px);
-    }
-    50% {
-        transform: translateX(5px);
-    }
 }
