@@ -1,0 +1,97 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin: 0;
+    font-size: 3em;
+    color: #ff4500; /* Dark orange color */
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border: 2px solid #ff4500;
+    box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.7);
+    border-radius: 15px;
+    color: #ffcc00; /* Edgy yellow text color */
+}
+
+footer {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #666;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://www.transparenttextures.com/patterns/gray-jean.png'); /* Add a gray jean texture */
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+}
+
+h2, p {
+    color: #ffcc00;
+}
+
+.sketchy-border {
+    border: 2px solid #666;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sketchy-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: 2px solid #666;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sketchy-button:hover {
+    background-color: #555;
+}
+
+.sketchy-animation {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
