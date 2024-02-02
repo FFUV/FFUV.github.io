@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const textElement = document.querySelector('.content p');
+
     const oppenheimerQuotes = [
         "I am become Death, the destroyer of worlds.",
         "The release of atomic energy has not created a new problem. It has merely made more urgent the necessity of solving an existing one.",
@@ -15,9 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
         return oppenheimerQuotes[randomIndex];
     }
 
-    function applyEdgyEffect() {
+    function applyOppenheimerEffect() {
         textElement.textContent = getRandomQuote();
         textElement.style.color = getRandomColor();
+        textElement.classList.add('scary-animation');
+        setTimeout(() => {
+            textElement.classList.remove('scary-animation');
+        }, 1000);
     }
 
     function getRandomColor() {
@@ -29,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return color;
     }
 
-    // Apply edgy effect on page load
-    applyEdgyEffect();
+    // Apply Oppenheimer effect on page load
+    applyOppenheimerEffect();
 
-    // Change text and color on click
-    textElement.addEventListener("click", applyEdgyEffect);
+    // Change text and color with scary animation on click
+    textElement.addEventListener("click", applyOppenheimerEffect);
 });
