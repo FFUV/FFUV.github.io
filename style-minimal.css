@@ -1,81 +1,60 @@
-body {
-    background-color: #1a1a1a;
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manhattan Project | Unveiling the Atomic Age</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-header {
-    background-color: #333;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
+    <header>
+        <h1>Manhattan Project</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-h1 {
-    margin: 0;
-    font-size: 2.5em;
-    color: #ccc; /* Light gray color */
-}
+    <section id="home">
+        <h2>Welcome to the Manhattan Project</h2>
+        <p>Embark on a journey through the pages of history, exploring the groundbreaking moments that unfolded during the Manhattan Project.</p>
+    </section>
 
-.content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #1a1a1a;
-    border: 2px solid #333;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    color: #ccc; /* Light gray text color */
-}
+    <section id="about">
+        <h2>About Us</h2>
+        <p>At the heart of our mission is a commitment to preserving and sharing the story of the Manhattan Project. We delve into the scientific, cultural, and historical aspects, unraveling the complexities of an era that changed the course of history.</p>
+    </section>
 
-footer {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    border-top: 2px solid #666;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
-}
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p>Step into our curated gallery, where each image tells a story. Immerse yourself in the visual journey of the people, places, and innovations that shaped the Manhattan Project.</p>
+    </section>
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'); /* Add a subtle linen texture */
-    opacity: 0.1;
-    pointer-events: none;
-    z-index: -1;
-}
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to learn more? Feel free to reach out to us. We welcome your inquiries and are eager to connect with fellow enthusiasts and curious minds.</p>
+        <form id="contactForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
 
-h2, p {
-    color: #ccc; /* Light gray text color */
-}
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
 
-.sketchy-border {
-    border: 2px solid #333;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
 
-.sketchy-button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 15px;
-    border: 2px solid #666;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
-.sketchy-button:hover {
-    background-color: #555;
-}
+    <footer>
+        <p>&copy; 2024 Manhattan Project Theme</p>
+    </footer>
+
+</body>
+</html>
