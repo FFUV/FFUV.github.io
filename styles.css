@@ -1,0 +1,63 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #666;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin: 0;
+    font-size: 3em;
+    color: #ff4500; /* Edgy orange color */
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1a1a1a; /* Dark background */
+    border: 1px solid #666;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+}
+
+footer {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #666;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional edgy styles */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Add a dark matter texture */
+    opacity: 0.2; /* Adjust opacity as needed */
+    pointer-events: none;
+    z-index: -1;
+}
+
+h2, p {
+    color: #ffcc00; /* Edgy yellow text color */
+}
+
+/* Add more edgy styles as needed */
