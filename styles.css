@@ -4,12 +4,13 @@ body {
     color: white;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
-    padding: 20px;
-    cursor: url('https://raw.githubusercontent.com/FFUV/FFUV.github.io/main/cursor.png'), auto;
+    padding: 0;
+    cursor: url('cursor.png'), auto;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
 }
 
 main {
