@@ -2,26 +2,28 @@
 body {
     background-color: black;
     color: white;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
-    padding: 0;
-    cursor: url('https://github.com/FFUV/FFUV.github.io/blob/main/cursor.png?raw=true'), auto;
+    padding: 20px;
+    cursor: url('https://raw.githubusercontent.com/FFUV/FFUV.github.io/main/cursor.png'), auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
+    max-width: 600px;
+    text-align: left;
 }
 
 h1 {
+    font-size: 3em;
     margin-bottom: 20px;
 }
 
 p {
+    font-size: 1.2em;
     margin-bottom: 40px;
 }
 
@@ -40,7 +42,6 @@ a {
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 a img {
@@ -54,15 +55,44 @@ a:hover {
 }
 
 h2 {
+    font-size: 1.5em;
     margin-top: 30px;
     margin-bottom: 10px;
 }
 
 ul ul {
     margin-top: 10px;
+    padding-left: 20px;
 }
 
 ul ul li {
     margin: 5px 0;
+    font-size: 1em;
 }
 
+img.qr-code {
+    display: block;
+    margin: 20px 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.email {
+    margin: 20px 0;
+    font-size: 1em;
+}
+
+button {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
