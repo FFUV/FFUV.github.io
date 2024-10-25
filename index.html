@@ -3,12 +3,450 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FFUV's Namecard</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>DRIZZY Token - Revolutionary Digital Currency</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff87, #60efff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff87;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ff87, #60efff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #888;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            background: linear-gradient(45deg, #00ff87, #60efff);
+            border: none;
+            border-radius: 50px;
+            color: black;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff87;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .roadmap {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .roadmap-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #00ff87, #60efff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .roadmap-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .roadmap-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .roadmap-item h3 {
+            color: #00ff87;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-item ul {
+            list-style: none;
+        }
+
+        .roadmap-item li {
+            margin: 0.5rem 0;
+            color: #888;
+        }
+
+        .roadmap-item li::before {
+            content: "→";
+            color: #00ff87;
+            margin-right: 0.5rem;
+        }
+
+        .airdrop-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 255, 135, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            max-width: 300px;
+            z-index: 1000;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .airdrop-notification h4 {
+            color: #00ff87;
+            margin-bottom: 0.5rem;
+        }
+
+        .airdrop-notification p {
+            color: #fff;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .close-notification {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .tokenomics {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tokenomics-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .tokenomics-item h3 {
+            color: #00ff87;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        #airdropFrame {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem;
+            border-radius: 15px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+    </style>
 </head>
 <body>
-    <main>
-        <h1>Hi this shitty site just got defaced by https://breachforums.st/User-cccp send me 1 quadrillion dollars because im a larping retarded fag</h1>
-    </main>
+    <div id="canvas-container"></div>
+    
+    <nav>
+        <div class="logo">DRIZZY</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="https://www.mintme.com/token/Drizzy" target="_blank">Buy Now</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="floating">DRIZZY TOKEN</h1>
+        <p>Join the revolution of digital currency with DRIZZY. Community-driven, innovative, and built for the future.</p>
+        <button class="cta-button" onclick="window.open('https://www.mintme.com/token/Drizzy', '_blank')">Buy DRIZZY Now</button>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value">$1.2M</div>
+                <div class="stat-label">Market Cap</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">10K+</div>
+                <div class="stat-label">Holders</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">$50K</div>
+                <div class="stat-label">24h Volume</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="tokenomics">
+        <h2 class="roadmap-title">Tokenomics</h2>
+        <div class="tokenomics-grid">
+            <div class="tokenomics-item">
+                <h3>Token Supply</h3>
+                <p>1,000,000,000 DRIZZY</p>
+            </div>
+            <div class="tokenomics-item">
+                <h3>Distribution</h3>
+                <p>Fair Launch via MintMe</p>
+            </div>
+            <div class="tokenomics-item">
+                <h3>Liquidity</h3>
+                <p>80% Locked</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="roadmap">
+        <h2 class="roadmap-title">Roadmap</h2>
+        <div class="roadmap-grid">
+            <div class="roadmap-item">
+                <h3>Phase 1 - Launch</h3>
+                <ul>
+                    <li>Token Launch on MintMe</li>
+                    <li>Community Building</li>
+                    <li>Website Launch</li>
+                    <li>Social Media Presence</li>
+                </ul>
+            </div>
+            <div class="roadmap-item">
+                <h3>Phase 2 - Growth</h3>
+                <ul>
+                    <li>Marketing Campaign</li>
+                    <li>Partnership Developments</li>
+                    <li>Exchange Listings</li>
+                    <li>Community Events</li>
+                </ul>
+            </div>
+            <div class="roadmap-item">
+                <h3>Phase 3 - Expansion</h3>
+                <ul>
+                    <li>DeFi Integration</li>
+                    <li>NFT Platform Development</li>
+                    <li>Major Exchange Listings</li>
+                    <li>Global Marketing Push</li>
+                </ul>
+            </div>
+            <div class="roadmap-item">
+                <h3>Phase 4 - Evolution</h3>
+                <ul>
+                    <li>Ecosystem Development</li>
+                    <li>Cross-chain Integration</li>
+                    <li>Mobile App Launch</li>
+                    <li>Governance Implementation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="airdrop-notification" id="airdropNotification">
+        <button class="close-notification" onclick="closeNotification()">×</button>
+        <h4>🎉 Congratulations!</h4>
+        <p>You're eligible for the DRIZZY token airdrop! Claim your tokens now before the offer expires.</p>
+        <button class="cta-button" onclick="showAirdrop()">Claim Airdrop</button>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div id="airdropFrame">
+        <iframe src="https://www.mintme.com/token/Drizzy/airdrop/7216/embeded" width="500px" height="500px" style="border: none;" scrolling="no"></iframe>
+    </div>
+
+    <script>
+        // Three.js Animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x00ff87,
+            wireframe: true
+        });
+        const torus = new THREE.Mesh(geometry, material);
+        scene.add(torus);
+
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            torus.rotation.x += 0.01;
+            torus.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+
+        // Airdrop notification functions
+        function closeNotification() {
+            document.getElementById('airdropNotification').style.display = 'none';
+        }
+
+        function showAirdrop() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('airdropFrame').style.display = 'block';
+        }
+
+        document.getElementById('overlay').addEventListener('click', function() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('airdropFrame').style.display = 'none';
+        });
+
+        // Show airdrop notification after a short delay
+        setTimeout(() => {
+            document.getElementById('airdropNotification').style.display = 'block';
+        }, 3000);
+    </script>
 </body>
 </html>
